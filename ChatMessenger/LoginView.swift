@@ -6,8 +6,17 @@
 //
 
 import SwiftUI
-
-struct ContentView: View {
+import Firebase
+class FirebaseManager: NSObject{
+    let auth: Auth
+    static let shared = FirebaseManager()
+    override init(){
+        FirebaseApp.configure()
+        self.auth = Auth.auth()
+        super.init()
+    }
+}
+struct LoginView: View {
     @State var isLoginMode = false
     @State var email = ""
     @State var password = ""
@@ -32,7 +41,7 @@ struct ContentView: View {
                     TextField("Email", text: $email).keyboardType(.emailAddress).autocapitalization(.none).padding(12).background(Color.white)
                     SecureField("Password", text: $password).padding(12).background(Color.white)
                     Button{
-                        
+                        handleAction()
                     }label:{
                         HStack {
                             Spacer()
@@ -41,18 +50,53 @@ struct ContentView: View {
                             Spacer()
                         }.background(Color.blue)
                     }
+                    Text(self.loginStatus).foregroundColor(.red)
                 }
                 
             }
             .navigationTitle(isLoginMode ? "Login" : "Create account")
             
         }
+        .navigationViewStyle(StackNavigationViewStyle())
         
+    }
+    private func handleAction(){
+        if isLoginMode{
+            loginUser()
+        }
+        else{
+            createNewAccount()
+        }
+    }
+    @State var loginStatus = ""
+    private func createNewAccount(){
+        FirebaseManager.shared.auth.createUser(withEmail: email, password: password){
+            result, err in
+            if let err = err {
+                print("Failed to create user:", err)
+                self.loginStatus = "Failed to create user: \(err)"
+                return
+            }
+            print("Successfully created user: \(result?.user.uid ?? "")")
+            self.loginStatus = "Successfully created user: \(result?.user.uid ?? "")"
+        }
+    }
+    private func loginUser(){
+        FirebaseManager.shared.auth.signIn(withEmail: email, password: password){
+            result, err in
+            if let err = err {
+                print("Failed to login user:", err)
+                self.loginStatus = "Failed to login user: \(err)"
+                return
+            }
+            print("Successfully logged in as user: \(result?.user.uid ?? "")")
+            self.loginStatus = "Successfullt logged in as user: \(result?.user.uid ?? "")"
+        }
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct ContentView_Previews1: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        LoginView()
     }
 }
