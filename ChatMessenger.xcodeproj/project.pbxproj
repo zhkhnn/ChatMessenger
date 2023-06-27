@@ -10,6 +10,7 @@
 		B35FDDC82A3230B9005AED50 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = B35FDDC72A3230B9005AED50 /* FirebaseAuth */; };
 		B35FDDCA2A3230B9005AED50 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = B35FDDC92A3230B9005AED50 /* FirebaseStorage */; };
 		B35FDDCC2A32322C005AED50 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B35FDDCB2A32322C005AED50 /* GoogleService-Info.plist */; };
+		B35FDDCE2A32B889005AED50 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35FDDCD2A32B889005AED50 /* ImagePicker.swift */; };
 		B363E56C2A30CDFC001FC796 /* ChatMessengerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B363E56B2A30CDFC001FC796 /* ChatMessengerApp.swift */; };
 		B363E56E2A30CDFC001FC796 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B363E56D2A30CDFC001FC796 /* LoginView.swift */; };
 		B363E5702A30CE00001FC796 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B363E56F2A30CE00001FC796 /* Assets.xcassets */; };
@@ -18,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		B35FDDCB2A32322C005AED50 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B35FDDCD2A32B889005AED50 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		B363E5682A30CDFC001FC796 /* ChatMessenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatMessenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B363E56B2A30CDFC001FC796 /* ChatMessengerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessengerApp.swift; sourceTree = "<group>"; };
 		B363E56D2A30CDFC001FC796 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 				B35FDDCB2A32322C005AED50 /* GoogleService-Info.plist */,
 				B363E56F2A30CE00001FC796 /* Assets.xcassets */,
 				B363E5712A30CE00001FC796 /* Preview Content */,
+				B35FDDCD2A32B889005AED50 /* ImagePicker.swift */,
 			);
 			path = ChatMessenger;
 			sourceTree = "<group>";
@@ -152,6 +155,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B35FDDCE2A32B889005AED50 /* ImagePicker.swift in Sources */,
 				B363E56E2A30CDFC001FC796 /* LoginView.swift in Sources */,
 				B363E56C2A30CDFC001FC796 /* ChatMessengerApp.swift in Sources */,
 			);
